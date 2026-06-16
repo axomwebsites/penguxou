@@ -179,16 +179,18 @@ function playSynthSound(type) {
 }
 
 async function bootstrap() {
-  const res = await fetch("manifest.json");
-  const manifest = await res.json();
-  
-  if (manifest.assets) {
-    for (let key in manifest.assets) {
-      for (let path of manifest.assets[key]) {
-        await loadscript(path);
+  try {
+    const res = await fetch("manifest.json");
+    const manifest = await res.json();
+    
+    if (manifest.assets) {
+      for (let key in manifest.assets) {
+        for (let path of manifest.assets[key]) {
+          await loadscript(path);
+        }
       }
     }
-  }
+  } catch (e) {}
   updatebars();
   updateroom();
 }
