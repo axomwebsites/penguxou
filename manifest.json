@@ -1,0 +1,80 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "component": "gamecontainer",
+      "action": "updateroom",
+      "initial": true
+    },
+    {
+      "path": "/kitchen",
+      "roomindex": 0,
+      "background": "#ffeaa7"
+    },
+    {
+      "path": "/laboratory",
+      "roomindex": 1,
+      "background": "#e8f8f5"
+    },
+    {
+      "path": "/gameroom",
+      "roomindex": 2,
+      "background": "#d6eaf8"
+    },
+    {
+      "path": "/bedroom",
+      "roomindex": 3,
+      "background": "#fadbd8"
+    },
+    {
+      "path": "/outside",
+      "roomindex": 4,
+      "background": "#d5f5e3"
+    }
+  ],
+  "settings": {
+    "mode": "hash",
+    "transition": "fade",
+    "fallback": "/kitchen"
+  },
+  "assets": {
+    "markets": [
+      "/foodmarket/market.js",
+      "/drinksmarket/market.js"
+    ],
+    "potions": [
+      "/potions/healthsyrup.js",
+      "/potions/energybooster.js",
+      "/potions/maxpotion.js",
+      "/potions/fatburner.js"
+    ],
+    "clothes": [
+      "/clothes/royalhat.js",
+      "/clothes/tophat.js",
+      "/clothes/cap.js"
+    ],
+    "games": [
+      "/games/fishdrop.js",
+      "/games/skating.js",
+      "/games/cardriving.js",
+      "/games/jumpingrope.js",
+      "/games/footballpenalties.js",
+      "/games/skyhop.js",
+      "/games/icerunner.js",
+      "/games/cloudbounce.js",
+      "/games/starcatcher.js",
+      "/games/snowballfight.js",
+      "/games/coinminer.js",
+      "/games/brickbreaker.js",
+      "/games/shellgame.js",
+      "/games/targetpractice.js",
+      "/games/flappypenguin.js",
+      "/games/meteordodge.js",
+      "/games/bubblepop.js",
+      "/games/colormatch.js",
+      "/games/hungryrun.js",
+      "/games/subwayglide.js",
+      "/games/mathrush.js"
+    ]
+  }
+}
