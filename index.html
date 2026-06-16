@@ -144,14 +144,11 @@ function initAudio() {
 function playSynthSound(type) {
   initAudio();
   if (!audioCtx) return;
-
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
   osc.connect(gain);
   gain.connect(audioCtx.destination);
-
   const now = audioCtx.currentTime;
-
   if (type === "feed") {
     osc.type = "triangle";
     osc.frequency.setValueAtTime(150, now);
@@ -180,13 +177,14 @@ function playSynthSound(type) {
 
 async function bootstrap() {
   try {
-    const res = await fetch("manifest.json");
+    const res = await fetch("./manifest.json");
+    if (!res.ok) return;
     const manifest = await res.json();
-    
     if (manifest.assets) {
       for (let key in manifest.assets) {
         for (let path of manifest.assets[key]) {
-          await loadscript(path);
+          const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+          await loadscript(cleanPath);
         }
       }
     }
@@ -198,7 +196,7 @@ async function bootstrap() {
 function loadscript(src) {
   return new Promise((resolve) => {
     const s = document.createElement("script");
-    s.src = src;
+    s.src = src + "?v=" + Date.now();
     s.onload = () => resolve();
     s.onerror = () => resolve();
     document.head.appendChild(s);
@@ -219,14 +217,12 @@ function updateroom() {
   document.getElementById("roomtitle").innerText = room;
   document.getElementById("roomview").style.background = 
     room === "kitchen" ? "#ffeaa7" : room === "laboratory" ? "#e8f8f5" : room === "gameroom" ? "#d6eaf8" : room === "bedroom" ? (state.sleeping ? "#1a252f" : "#fadbd8") : "#d5f5e3";
-
   document.getElementById("lampcontainer").style.display = room === "bedroom" ? "flex" : "none";
   document.getElementById("pillow").style.display = room === "bedroom" ? "block" : "none";
   document.getElementById("gameslauncher").style.display = room === "gameroom" ? "block" : "none";
   document.getElementById("car").style.display = room === "outside" ? "block" : "none";
   document.getElementById("rope").style.display = room === "outside" ? "block" : "none";
   penguxou.style.bottom = room === "bedroom" ? "20px" : "0px";
-
   if (room === "outside") {
     document.getElementById("car").style.left = "40px";
     document.getElementById("rope").style.left = "160px";
@@ -318,7 +314,6 @@ document.getElementById("openstore").addEventListener("click", () => {
   if (window.markets?.drinks) items = items.concat(window.markets.drinks);
   if (window.potions) items = items.concat(Object.values(window.potions));
   if (window.clothes) items = items.concat(Object.values(window.clothes));
-
   items.forEach(i => {
     const row = document.createElement("div"); row.className = "shopitem";
     row.innerHTML = `<div><i class="fas ${i.icon}"></i> ${i.name} (${i.cost} c)</div><button class="buybtn" data-id="${i.id}" data-cost="${i.cost}">buy</button>`;
@@ -415,9 +410,7 @@ document.getElementById("roomview").addEventListener("mousemove", (e) => {
 });
 document.addEventListener("mouseup", () => dragcar = false);
 
-window.addEventListener("click", () => {
-  initAudio();
-}, { once: true });
+window.addEventListener("click", () => { initAudio(); }, { once: true });
 
 bootstrap();
 </script>
