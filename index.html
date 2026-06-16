@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penguxou Sim</title>
+    <title>Penguxou</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
@@ -46,11 +46,85 @@
             font-size: 14px;
             font-weight: bold;
         }
-        #penguin {
-            font-size: 80px;
+        #penguin-container {
+            width: 160px;
+            height: 180px;
+            position: relative;
             margin-top: 40px;
             transition: transform 0.1s ease;
         }
+        .body {
+            width: 140px;
+            height: 170px;
+            background: #2d3436;
+            border-radius: 50% 50% 45% 45%;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        .belly {
+            width: 100px;
+            height: 120px;
+            background: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            left: 30px;
+            bottom: 10px;
+        }
+        .eye {
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 45px;
+        }
+        .eye.left { left: 45px; }
+        .eye.right { right: 45px; }
+        .pupil {
+            width: 8px;
+            height: 8px;
+            background: #000000;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+        }
+        .beak {
+            width: 24px;
+            height: 18px;
+            background: #f1c40f;
+            border-radius: 50% 50% 50% 50%;
+            position: absolute;
+            top: 60px;
+            left: 68px;
+        }
+        .flipper {
+            width: 25px;
+            height: 70px;
+            background: #2d3436;
+            position: absolute;
+            top: 65px;
+            border-radius: 50%;
+        }
+        .flipper.left {
+            left: -5px;
+            transform: rotate(25deg);
+        }
+        .flipper.right {
+            right: -5px;
+            transform: rotate(-25deg);
+        }
+        .foot {
+            width: 35px;
+            height: 20px;
+            background: #f1c40f;
+            position: absolute;
+            bottom: 0;
+            border-radius: 50% 50% 30% 30%;
+        }
+        .foot.left { left: 35px; }
+        .foot.right { right: 35px; }
         #shelf {
             width: 100%;
             background: rgba(255,255,255,0.4);
@@ -90,7 +164,18 @@
                 <div class="stat-box">Health: <span id="health-val">100</span>%</div>
             </div>
 
-            <div id="penguin">🐧</div>
+            <div id="penguin-container">
+                <div class="foot left"></div>
+                <div class="foot right"></div>
+                <div class="flipper left"></div>
+                <div class="flipper right"></div>
+                <div class="body">
+                    <div class="belly"></div>
+                    <div class="eye left"><div class="pupil"></div></div>
+                    <div class="eye right"><div class="pupil"></div></div>
+                    <div class="beak"></div>
+                </div>
+            </div>
 
             <div id="shelf"></div>
         </div>
