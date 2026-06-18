@@ -26,26 +26,26 @@
 <body>
     <div id="app">
         <div class="header">
-            <div class="header-left">
-                <input type="text" class="name-input" id="petNameInput" value="Ponxou" maxlength="12" />
+            <div class="headerleft">
+                <input type="text" class="nameinput" id="petnameinput" value="Ponxou" maxlength="12" />
             </div>
-            <div class="header-right">
-                <span class="level-badge" id="levelBadge">Lv.1</span>
-                <div class="coin-display">
+            <div class="headerright">
+                <span class="levelbadge" id="levelbadge">Lv.1</span>
+                <div class="coindisplay">
                     <img src="https://uploads.onecompiler.com/43xa2dbu5/1781634264990/1000067507.jpg" alt="coins" />
-                    <span id="coinDisplay">150</span>
+                    <span id="coindisplay">150</span>
                 </div>
             </div>
         </div>
-        <div class="room-nav">
-            <button class="nav-btn" id="roomLeftBtn">‹</button>
-            <div class="room-indicators" id="roomIndicators"><span class="active"></span><span></span><span></span><span></span><span></span></div>
-            <span class="room-label" id="roomLabel">Kitchen</span>
-            <button class="nav-btn" id="roomRightBtn">›</button>
+        <div class="roomnav">
+            <button class="navbtn" id="roomleftbtn">‹</button>
+            <div class="roomindicators" id="roomindicators"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+            <span class="roomlabel" id="roomlabel">Kitchen</span>
+            <button class="navbtn" id="roomrightbtn">›</button>
         </div>
         <div class="stage" id="stage">
-            <div class="room-bg active" id="roomBg"></div>
-            <div class="ponxou-container" id="ponxouContainer">
+            <div class="roombg active" id="roombg"></div>
+            <div class="ponxoucontainer" id="ponxoucontainer">
                 <div class="poubody">
                     <div class="poubelly"></div>
                     <div class="poueye left"><div class="white"><div class="pupil"></div></div></div>
@@ -57,31 +57,31 @@
                     <div class="foot rightfoot"></div>
                 </div>
             </div>
-            <div class="room-content" id="roomContent">
+            <div class="roomcontent" id="roomcontent">
                 <div class="shelf" id="shelf"></div>
-                <div class="interact-area" id="interactArea"></div>
+                <div class="interactarea" id="interactarea"></div>
             </div>
-            <div class="status-bar" id="statusBar">
-                <div class="status-item"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634251192/1000067504.jpg" /><div class="meter"><div class="fill" id="hungerFill" style="width:70%"></div></div><span id="hungerVal">70</span></div>
-                <div class="status-item"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634262701/1000067505.jpg" /><div class="meter"><div class="fill" id="energyFill" style="width:80%"></div></div><span id="energyVal">80</span></div>
-                <div class="status-item"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634257920/1000067506.jpg" /><div class="meter"><div class="fill" id="healthFill" style="width:90%"></div></div><span id="healthVal">90</span></div>
-                <div class="status-item"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634232420/1000067503.jpg" /><div class="meter"><div class="fill" id="boredomFill" style="width:30%"></div></div><span id="boredomVal">30</span></div>
+            <div class="statusbar" id="statusbar">
+                <div class="statusitem"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634251192/1000067504.jpg" /><div class="meter"><div class="fill" id="hungerfill" style="width:70%"></div></div><span id="hungerval">70</span></div>
+                <div class="statusitem"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634262701/1000067505.jpg" /><div class="meter"><div class="fill" id="energyfill" style="width:80%"></div></div><span id="energyval">80</span></div>
+                <div class="statusitem"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634257920/1000067506.jpg" /><div class="meter"><div class="fill" id="healthfill" style="width:90%"></div></div><span id="healthval">90</span></div>
+                <div class="statusitem"><img src="https://uploads.onecompiler.com/43xa2dbu5/1781634232420/1000067503.jpg" /><div class="meter"><div class="fill" id="boredomfill" style="width:30%"></div></div><span id="boredomval">30</span></div>
             </div>
         </div>
-        <div class="action-bar">
-            <button class="action-btn" id="shopBtn">🛒 Shop</button>
-            <button class="action-btn" id="inventoryBtn">📦 Inventory</button>
-            <button class="action-btn" id="sleepBtn">💤 Sleep</button>
-            <button class="action-btn" id="arcadeBtn">🎮 Arcade</button>
+        <div class="actionbar">
+            <button class="actionbtn" id="shopbtn">🛒 Shop</button>
+            <button class="actionbtn" id="inventorybtn">📦 Inventory</button>
+            <button class="actionbtn" id="sleepbtn">💤 Sleep</button>
+            <button class="actionbtn" id="arcadebtn">🎮 Arcade</button>
         </div>
     </div>
-    <div class="modal-overlay" id="modalOverlay">
+    <div class="modaloverlay" id="modaloverlay">
         <div class="modal" id="modal">
-            <div class="modal-header">
-                <span id="modalTitle">Shop</span>
-                <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modalheader">
+                <span id="modaltitle">Shop</span>
+                <button class="modalclose" id="modalclose">&times;</button>
             </div>
-            <div class="modal-body" id="modalBody"></div>
+            <div class="modalbody" id="modalbody"></div>
         </div>
     </div>
     <div class="toast" id="toast"></div>
