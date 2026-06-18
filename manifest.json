@@ -8,11 +8,12 @@
     "theme_color": "#141824",
     "games": [
         {
-            "id": "deepsea",
-            "name": "Deep Sea Dive",
+            
+            "id": "shark",
+            "name": "Shark Escape",
             "folder": "js/games",
-            "file": "deepsea.js",
-            "icon": "https://img.icons8.com/color/48/000000/fish.png"
+            "file": "shark.js",
+            "icon": "https://img.icons8.com/color/48/000000/shark.png"
         },
         {
             "id": "glacier",
@@ -29,4 +30,4 @@
             "icon": "https://img.icons8.com/color/48/000000/meteor.png"
         }
     ]
-}
+        }
